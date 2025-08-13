@@ -30,7 +30,7 @@ body div button{
     border-radius: 20px;
     font-size: 15px;
 }
-body div button:hover{
+body div button:hover{  
     border-radius: 10px;
     transition: 0.5s;
     background-color: rgba(149, 168, 228, 0.555);
