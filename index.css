@@ -8,8 +8,7 @@
 }
 
 body {
-    text-shadow: 10px 10px 20px black;
-    color:rgba(103, 140, 248, 0.76);
+
     background-image: url("img2.gif");
     background-size: cover;
     height: 100vh;
@@ -19,7 +18,7 @@ body {
     text-align: center;
 }
 body div button{
-    
+    background-color: rgba(103, 139, 248, 0.253);
     margin-top: 10px;
     padding: 10px 20px;
     height: 50px;
@@ -27,8 +26,16 @@ body div button{
     border-radius: 20px;
     font-size: 15px;
 }
+body div button:hover{
+    background-color: rgba(103, 139, 248, 0.555);
+    cursor: pointer;
+    color: rgb(148, 90, 202);
+    font-weight: bold;
+}
 
 body div h1{
+    color:rgba(103, 139, 248, 0.938);
+    text-shadow: 3px 5px rgba(0, 0, 0, 0.575);
     font-size: 50px;
     margin-bottom: 20px;
 }
