@@ -21,8 +21,8 @@ engine.world.gravity.x = 0;
 
 // Movimiento horizontal
 const keys = {};
-document.addEventListener("keydown", e => keys[e.key] = true);
-document.addEventListener("keyup", e => keys[e.key] = false);
+document.addEventListener("keydown", (e) => keys[e.key] = true);
+document.addEventListener("keyup", (e) => keys[e.key] = false);
 
 Events.on(engine, "beforeUpdate", () => {
     if (keys["a"] || keys["ArrowUp"]) Body.setPosition(player, { x: player.position.x - force, y: player.position.y });
@@ -36,7 +36,7 @@ Events.on(engine, "beforeUpdate", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = "black";
-    ctx.fillRect(player.position.x - 25, player.position.y - 25, 50, 50);
+    ctx.fillRect(player.position.x - 0, player.position.y - 25, 50, 50);
 
     requestAnimationFrame(draw);
 })();
