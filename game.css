@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+
 * {
     margin: 0px;
     padding: 0px;
@@ -7,6 +8,8 @@
 }
 
 body {
+    background-image: url("Fundo da tela inicial.gif");
+    background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
