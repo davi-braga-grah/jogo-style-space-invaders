@@ -1,53 +1,42 @@
-const { Engine, Runner, Bodies, World, Body, Events, Render } = Matter;
+const { Engine, Runner, Bodies, World, Body, Events } = Matter;
 
 const canvas = document.getElementById("game");
-const sprite_player = canvas.getContext("2d");
-
-const keys = {};
+const ctx = canvas.getContext("2d");
 
 const engine = Engine.create();
 const world = engine.world;
 
-const render = Render.create({
-    element: document.body,
-    engine: engine,
-    options: {
-        width: 800,
-        height: 600,
-        wireframes: false
-    }
-});
-Render.run(render);
+var force = 3;
 
+// Crear jugador
+const player = Bodies.rectangle(400, 300, 50, 50);
+World.add(world, [player]);
+
+// Iniciar motor
 const runner = Runner.create();
 Runner.run(runner, engine);
 
-const player = Bodies.rectangle(400, 200, 50, 50, { restitution: 0, label: "player" });
+engine.world.gravity.y = 0;
+engine.world.gravity.x = 0;
 
-world.add(world, [player])
-    (function draw() {
-        sprite_player.clearRect(0, 0, canvas.width, canvas.height);
+// Movimiento horizontal
+const keys = {};
+document.addEventListener("keydown", e => keys[e.key] = true);
+document.addEventListener("keyup", e => keys[e.key] = false);
 
-        sprite_player.fillStyle = "blue";
-        sprite_player.fillRect(player.position.x - 25, player.position.y - 25, 50, 50);
-
-        requestAnimationFrame(draw);
-})();
-
-// foi ou nao clicada
-document.addEventListener("keydown", (e) => {
-    keys[e.key] = true;
-});
-document.addEventListener("keyup", (e) => {
-    keys[e.key] = false;
-});
-
-// update aplicar movent
 Events.on(engine, "beforeUpdate", () => {
-    if (keys["a"]) {
-        Body.setVelocity(player, { x: -5, y: player.velocity.y })
-    }
-    if (keys["d"]) {
-        Body.setVelocity(player, { x: 5, y: player.velocity.y })
-    }
-})
+    if (keys["a"] || keys["ArrowUp"]) Body.setPosition(player, { x: player.position.x - force, y: player.position.y });
+    if (keys["d"] || keys["ArrowRight"]) Body.setPosition(player, { x: player.position.x + force, y: player.position.y });
+    if (keys["w"] || keys["ArrowLeft"]) Body.setPosition(player, { x: player.position.x, y: player.position.y - force });
+    if (keys["s"] || keys["ArrowDown"]) Body.setPosition(player, { x: player.position.x, y: player.position.y + force });
+});
+
+// Dibujar
+(function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "black";
+    ctx.fillRect(player.position.x - 25, player.position.y - 25, 50, 50);
+
+    requestAnimationFrame(draw);
+})();
