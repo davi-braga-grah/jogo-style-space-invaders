@@ -32,20 +32,22 @@ world.add(world, [player])
         sprite_player.fillRect(player.position.x - 25, player.position.y - 25, 50, 50);
 
         requestAnimationFrame(draw);
-    })();
+})();
 
+// foi ou nao clicada
+document.addEventListener("keydown", (e) => {
+    keys[e.key] = true;
+});
+document.addEventListener("keyup", (e) => {
+    keys[e.key] = false;
+});
+
+// update aplicar movent
 Events.on(engine, "beforeUpdate", () => {
- 
-    document.addEventListener("keydown", (e) => { 
-        keys[e.key] = true;
-    });
-    document.addEventListener("keyup", (e) => { 
-        keys[e.key] = false;
-    });
-    if (e.key == "a") {
+    if (keys["a"]) {
         Body.setVelocity(player, { x: -5, y: player.velocity.y })
     }
-    if (e.key == "d") {
+    if (keys["d"]) {
         Body.setVelocity(player, { x: 5, y: player.velocity.y })
     }
 })
