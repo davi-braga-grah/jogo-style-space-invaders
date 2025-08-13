@@ -8,6 +8,8 @@
 }
 
 body {
+    text-shadow: 10px 10px 20px black;
+    color:rgba(78, 112, 212, 0.76);
     background-image: url("img2.gif");
     background-size: cover;
     height: 100vh;
