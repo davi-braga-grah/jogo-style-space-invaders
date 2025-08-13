@@ -5,10 +5,9 @@ const ctx = canvas.getContext("2d");
 
 const engine = Engine.create();
 const world = engine.world;
-
+a
+// jugador
 var force = 3;
-
-// Crear jugador
 const player = Bodies.rectangle(400, 300, 50, 50);
 World.add(world, [player]);
 
@@ -34,6 +33,9 @@ Events.on(engine, "beforeUpdate", () => {
 // Dibujar
 (function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "black";
+    ctx.fillRect(player.position.x - 0, player.position.y - 25, 50, 50);
 
     ctx.fillStyle = "black";
     ctx.fillRect(player.position.x - 0, player.position.y - 25, 50, 50);
