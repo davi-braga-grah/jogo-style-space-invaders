@@ -5,7 +5,7 @@ const ctx = canvas.getContext("2d");
 
 const engine = Engine.create();
 const world = engine.world;
-a
+
 // jugador
 var force = 3;
 const player = Bodies.rectangle(400, 300, 50, 50);
