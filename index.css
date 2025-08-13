@@ -18,6 +18,10 @@ body {
     text-align: center;
 }
 body div button{
+    border-radius: 10px;
+    transition: 0.5s;
+    opacity: none;
+    transform: scale(1);
     background-color: rgba(103, 139, 248, 0.253);
     margin-top: 10px;
     padding: 10px 20px;
@@ -27,9 +31,12 @@ body div button{
     font-size: 15px;
 }
 body div button:hover{
-    background-color: rgba(103, 139, 248, 0.555);
+    border-radius: 10px;
+    transition: 0.5s;
+    background-color: rgba(149, 168, 228, 0.555);
+    transform: scale(1.1);
     cursor: pointer;
-    color: rgb(148, 90, 202);
+    color: rgba(0, 0, 0, 0.808);
     font-weight: bold;
 }
 
