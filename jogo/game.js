@@ -16,7 +16,7 @@ engine.world.gravity.y = 0;
 // jugador
 var force = 3;
 const player = Bodies.rectangle(640, 360, 100, 100, {
-
+    friction: 0.5,
 });
 World.add(world, [player]);
 
