@@ -3,9 +3,6 @@ const { Engine, Runner, Bodies, World, Body, Events } = Matter;
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
-const playerImage = new Image();
-playerImage.src = "images.jpg";
-
 const engine = Engine.create();
 const world = engine.world;
 
@@ -18,7 +15,7 @@ engine.world.gravity.x = 0;
 
 // jugador
 var force = 3;
-const player = Bodies.rectangle(1280 / 2, 720 / 2, 100, 100);
+const player = Bodies.rectangle(640, 360, 100, 100);
 World.add(world, [player]);
 
 // Movimiento horizontal
@@ -37,7 +34,7 @@ Events.on(engine, "beforeUpdate", () => {
 (function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.drawImage(playerImage, player.position.x -50, player.position.y -50, 100, 100);
-
+    ctx.fillStyle = "green";
+    ctx.fillRect(player.position.x - 50, player.position.y - 50, 100, 100);
     requestAnimationFrame(draw);
 })();
