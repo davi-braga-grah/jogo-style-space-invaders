@@ -17,6 +17,7 @@ body {
     justify-content: center;
     text-align: center;
 }
+
 body div button{
     border-radius: 10px;
     transition: 0.5s;
@@ -39,10 +40,28 @@ body div button:hover{
     color: rgba(0, 0, 0, 0.808);
     font-weight: bold;
 }
-
+body pop{
+    padding-top: 50px;
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 20px;
+    border-radius: 15px;
+}
 body div h1{
     color:rgba(103, 139, 248, 0.938);
     text-shadow: 3px 5px rgba(0, 0, 0, 0.575);
     font-size: 50px;
     margin-bottom: 20px;
+}
+.desactive{
+    opacity: 0;
+}
+.active{
+    transition: 0.5s;
+    transform: scale(1);
+    opacity: 1;
 }
