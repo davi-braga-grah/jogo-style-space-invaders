@@ -17,6 +17,7 @@ engine.world.gravity.y = 0;
 var force = 3;
 const player = Bodies.rectangle(640, 360, 100, 100, {
     friction: 0.5,
+    density: 1,
 });
 World.add(world, [player]);
 
@@ -35,7 +36,6 @@ Events.on(engine, "beforeUpdate", () => {
 // Dibujar
 (function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     ctx.fillStyle = "blue";
     ctx.fillRect(player.position.x - 50, player.position.y - 50, 100, 100);
     requestAnimationFrame(draw);
